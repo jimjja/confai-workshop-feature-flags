@@ -3,6 +3,7 @@
 ## Overview
 
 This monorepo contains the full-stack implementation of a feature flag management system, including:
+
 - **Backend**: TypeScript/Express API for feature flag management, history, and notes.
 - **Frontend**: Next.js UI for creating, editing, and viewing feature flags.
 
@@ -25,6 +26,7 @@ confai-workshop/
 ---
 
 ## Prerequisites
+
 - Node.js (v18+ recommended)
 - npm (v9+ recommended)
 - PostgreSQL (or Docker for DB)
@@ -35,6 +37,7 @@ confai-workshop/
 ## Setup (All Apps)
 
 1. **Install dependencies (root and all apps):**
+
    ```bash
    npm install
    cd apps/backend && npm install
@@ -43,6 +46,7 @@ confai-workshop/
    ```
 
 2. **Environment variables:**
+
    - Copy `.env.example` to `.env` in each app and fill in required values.
    - Backend: `DATABASE_URL`, `PORT`
    - Frontend: `NEXT_PUBLIC_API_URL`
@@ -57,7 +61,15 @@ confai-workshop/
 
 ## Running the Apps
 
+### **With Docker Compose (if configured):**
+
+```bash
+cd ./infra
+docker-compose up --build
+```
+
 ### **Development (separate terminals):**
+
 - **Backend:**
   ```bash
   cd apps/backend
@@ -70,15 +82,10 @@ confai-workshop/
   ```
 - Visit [http://localhost:3000](http://localhost:3000)
 
-### **With Docker Compose (if configured):**
-```bash
-# From the root
-# docker-compose up --build
-```
-
 ---
 
 ## Common Scripts (from root)
+
 - `npm run lint`      # Lint all apps
 - `npm run format`    # Format all apps
 - `npm test`          # Run all tests (if configured)
@@ -86,12 +93,14 @@ confai-workshop/
 ---
 
 ## Documentation
+
 - [Backend README](./apps/backend/README.md)
 - [Frontend README](./apps/frontend/README.md)
 
 ---
 
 ## Contribution & Workflow
+
 - Follow the dev workflow in the backlog and code review rules.
 - All code must be TypeScript, strictly typed, and tested.
 - See app-specific READMEs for more details.
