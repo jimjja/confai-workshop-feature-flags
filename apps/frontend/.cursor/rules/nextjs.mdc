@@ -1,0 +1,25 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Next.js Best Practices
+
+- Use the [App Router](mdc:https:/nextjs.org/docs/app) for all routing and page organization. Do not use the Pages Router.
+- Organize pages and layouts using the `app/` directory, with `page.tsx`, `layout.tsx`, and route groups as needed.
+- Use file-based routing for all pages.
+- Prefer Server Components for data-fetching and non-interactive UI; use Client Components only when necessary (e.g., for interactivity, hooks). Use the 'use client' directive only when required.
+- All client components and pages that use hooks, state, or effects must include the 'use client' directive at the top of the file. Only add 'use client' when necessary.
+- Implement proper data fetching patterns and caching strategies (e.g., fetch, revalidate, cache tags).
+- Implement proper error boundaries and loading UI patterns for all routes and components.
+- Use dynamic and parallel routes as needed for complex navigation.
+- Use proper data mutation patterns and state management (e.g., server state, client state, form state).
+- Optimize Core Web Vitals (LCP, FID, CLS) for performance.
+- Optimize images (Next.js Image component) and fonts (Next.js font optimization).
+- Use proper static generation and incremental static regeneration (ISR) where appropriate.
+- Use environment variables via Next.js conventions (`process.env.NEXT_PUBLIC_*` for client-side, `process.env.*` for server-side).
+- Use the `public/` directory for static assets.
+- Use the `next.config.ts` file for project configuration.
+- Follow Next.js conventions for error handling, loading states, and metadata.
+- Use TypeScript for all components and pages.
+- Keep up to date with the latest Next.js features and best practices from the official docs.

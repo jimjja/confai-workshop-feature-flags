@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# UI Components Best Practices
+
+- Use [shadcn/ui](mdc:https:/ui.shadcn.com) (or its Radix UI base) for all UI primitives and components it provides, including dialogs, modals, popovers, tooltips, dropdowns, and similar elements. Do not use custom or third-party alternatives for these primitives unless there is a strong, documented reason and it is noted in code review.
+- Use Tailwind CSS utility classes for styling components; avoid inline styles except for dynamic cases.
+- Organize components in a `components/` directory, grouped by domain or feature when possible.
+- Write all components as React functional components using TypeScript.
+- Use explicit and well-typed props for all components; document complex props with JSDoc.
+- Prefer named exports for all components.
+- Keep components small, focused, and reusable (atomic design).
+- Compose components for flexibility and reusability.
+- Implement proper loading and error states in UI components.
+- Follow mobile-first responsive design principles.
+- Use CSS Grid and Flexbox via Tailwind for layout.
+- Maintain consistent spacing using Tailwind's spacing scale.
+- Implement lazy loading for components and images where appropriate.
+- Optimize images for performance (Next.js Image component, responsive sizes).
+- Use animation and transition patterns for interactive components (e.g., Tailwind transitions, shadcn/ui motion utilities).
+- Use [zod](mdc:https:/zod.dev) for schema validation and [react-hook-form](mdc:https:/react-hook-form.com) for form state management and validation integration.
+- Integrate zod schemas with react-hook-form using adapters/utilities for type-safe, declarative validation.
+- Write accessibility-friendly (a11y) markup and use semantic HTML.
+- Use ARIA attributes and roles where appropriate to improve accessibility.
+- Follow shadcn/ui and Tailwind CSS best practices for performance and maintainability.

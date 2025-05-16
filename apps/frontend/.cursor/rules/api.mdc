@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Frontend API Usage Rules
+
+## API Module Location
+- All API logic must live in a single `api` module under `src/api`.
+- Do not place API logic in feature or component folders (e.g., do not create `issues/api/` or similar).
+- All components and features must import API utilities from `src/api` only.
+
+## API URL Management
+- Always use a central `API_URL` constant for all API calls in the frontend.
+- The `API_URL` should be set from `process.env.NEXT_PUBLIC_API_URL` or default to `http://localhost:8080/api`.
+- Never hardcode `/api/...` paths directly in fetch/axios calls; always use `${API_URL}/...`.
+- This ensures all API calls are environment-agnostic and can be easily redirected in different environments (dev, staging, prod).
+
+## Example
+```ts
+// src/api/featureFlag.ts
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080/api";
+export async function getIssue(id: string) {
+  const res = await fetch(`${API_URL}/feature-flags/${id}/history`);
+  if (!res.ok) throw new Error("Failed to fetch history");
+  return res.json();
+}
+
+// In a component:
+import { getFeatureFlagHistory } from '@/api/featureFlag';
+```
+
+## Best Practices
+- Define `API_URL` at the top of the API module or in a shared config if used in multiple places.
+- Use template literals for all endpoint paths.
+- If using a custom API client or hook, ensure it uses the central `API_URL`.
+- Document any exceptions or special cases in the codebase.

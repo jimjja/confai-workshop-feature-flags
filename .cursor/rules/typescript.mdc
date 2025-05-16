@@ -1,0 +1,17 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Use TypeScript for all source code in apps and packages.
+- Use strict mode in all `tsconfig.json` files.
+- Prefer explicit types for function parameters and return values.
+- Use interfaces for public APIs and types for internal structures.
+- Avoid using `any`—prefer unknown or proper type guards.
+- Organize types in a dedicated `types/` directory or file per domain.
+- Use enums or union types for fixed sets of values.
+- Prefer named exports over default exports.
+- Use consistent naming conventions: PascalCase for types/interfaces, class names and file names, camelCase for variables/functions.
+- Keep functions and files small and focused.
+- Document complex types and interfaces with JSDoc comments.
+- Leverage TypeScript's utility types (Partial, Pick, Omit, etc.)

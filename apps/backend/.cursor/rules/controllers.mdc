@@ -1,0 +1,22 @@
+---
+description: 
+globs: *.controller.ts
+alwaysApply: false
+---
+## Controllers
+- All controller functions must return `Promise<void>` to ensure consistent async handling and error propagation.
+- Controller function logic should always be wrapped in a `try/catch` block, and any exceptions should be propagated to Express's `NextFunction` for centralized error handling. For example:
+
+```ts
+export async function updateIssueHandler(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+): Promise<void> {
+  try {
+    // ...controller logic...
+  } catch (error) {
+    next(error);
+  }
+}
+```

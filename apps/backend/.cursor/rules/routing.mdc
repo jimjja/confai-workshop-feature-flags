@@ -1,0 +1,48 @@
+---
+description: 
+globs: *.routes.ts
+alwaysApply: false
+---
+# Backend Routing Practices
+
+- Each domain/resource must have its own route file in `src/routes/` (e.g., `issue.routes.ts`, `ping.routes.ts`).
+- The main router (`src/routes/index.ts`) must only mount per-domain routers using Express's `router.use` with a prefix (e.g., `/issues`, `/ping`).
+- Do not define endpoints directly in the main router.
+- All endpoints must be RESTful and follow resource-based naming.
+
+## Example
+
+```ts
+// src/routes/issue.routes.ts
+import { Router } from 'express';
+import { issueController } from '../controllers/issue.controller';
+
+const router = Router();
+
+router.get('/', issueController.getAll);
+router.post('/', issueController.create);
+
+export default router;
+
+// src/routes/index.ts
+import { Router } from 'express';
+import issueRoutes from './issue.routes';
+
+const router = Router();
+
+router.use('/issues', issueRoutes);
+
+export default router;
+```
+
+For folder structure, see the `folder-structure.mdc` rule.
+
+## Express Routing Standard
+- All backend HTTP routing **must use Express Routers**.
+- Route registration should use the `Router` pattern (e.g., `const router = Router(); ... export default router;`).
+- Controllers and handlers must be compatible with Express's `Request` and `Response` objects.
+
+## OpenAPI Documentation for Routes
+- **Each backend route must include a JSDoc OpenAPI (Swagger) comment** block directly above the route definition in its route file.
+- The JSDoc OpenAPI must describe the endpoint, request, response, and error cases.
+- The JSDoc OpenAPI must be kept up to date with the implementation.

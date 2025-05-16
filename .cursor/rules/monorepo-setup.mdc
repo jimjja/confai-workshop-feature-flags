@@ -1,0 +1,13 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+- Use a monorepo structure with separate apps under `apps/` (e.g., `apps/backend`, `apps/frontend`).
+- All apps should live under `apps/`.
+- Use a single package manager (npm) for all apps.
+- Use a root `.gitignore` and `.editorconfig` for consistency.
+- Use root-level scripts for common dev tasks (e.g., `npm run lint`, `npm run format`).
+- Keep documentation up to date in the root `README.md`.
+- Use Docker Compose for local development and service orchestration (if needed).
+- Use consistent naming conventions for apps.

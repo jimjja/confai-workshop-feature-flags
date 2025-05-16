@@ -1,0 +1,8 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Database Querying Rule
+- For all database-related queries, checks, or operations requested by the user, always use the configured MCP Server.
+- Do not use direct SQL queries or ORM access for these tasks unless explicitly requested otherwise by the user.

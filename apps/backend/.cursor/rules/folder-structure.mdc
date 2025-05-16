@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Backend Folder Structure
+
+Organize the backend as follows:
+
+- `src/routes/`: All ExpressJS route definitions, one file per resource/domain.
+- `src/services/`: Business logic, one file per domain/service.
+- `src/controllers/`: (Optional) Request/response handling, validation, orchestration.
+- `src/lib/`: Shared utilities, helpers, and Prisma client.
+- `src/database/`: All database related configuration.
+- `src/database/prisma/`: Prisma client and related files. 
+- `src/config/`: App configuration, environment, schema, etc.
+- `src/types/`: Shared TypeScript types/interfaces.
+- `src/middlewares/`: ExpressJS middlewares (auth, logging, etc.).
+- `src/validators/`: All Zod (or other) validators for request bodies, one file per domain/resource.
+- `src/tests/`: Unit and integration tests.
+- `src/index.ts`: App entrypoint.
+
+Each folder should only contain files relevant to its responsibility. For architectural guidance, see the `architecture.mdc` rule.
+
+## File Naming Conventions
+- Controllers must be named `name.controller.ts` (e.g., `issueType.controller.ts`).
+- Services must be named `name.service.ts` (e.g., `issueType.service.ts`).
+- Validators must be named `name.validator.ts` (e.g., `issueType.validator.ts`).
+- Types must be named `name.types.ts` (e.g., `issueType.types.ts`).
+- Routes must be named `name.routes.ts` (e.g., `issueType.routes.ts`).
+- Apply this convention consistently for all domain files.
+
+## Test File Location
+- All test files must be placed in a dedicated `tests/` folder, mirroring the structure of the code they test.
+- Do not place test files alongside implementation files.
+
+# ExpressJS Folder Structure
+- Place all ExpressJS route definitions in a `routes/` directory.
+- Controllers should be in `controllers/`, and services in `services/`.
+- Middleware should be in a `middleware/` directory if custom middleware is used.
+
+

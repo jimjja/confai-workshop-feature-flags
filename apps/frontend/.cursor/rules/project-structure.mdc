@@ -1,0 +1,29 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Frontend Project Structure
+
+- Use the `app/` directory for all pages, layouts, and route groups (Next.js App Router). Do not use the Pages Router.
+- Place reusable UI components in a `components/` directory at the project root or within relevant feature/domain folders (see `ui-components.mdc`).
+- Use [shadcn/ui](mdc:https:/ui.shadcn.com) for all UI components and primitives.
+- Use a `types/` directory or file for shared and domain-specific TypeScript types.
+- Place static assets (images, icons, etc.) in the `public/` directory.
+- Use a `styles/` directory or `globals.css` for global Tailwind and CSS imports.
+- Organize code by domain or feature when possible (feature-based structure), grouping related components, types, and logic together.
+- Use `utils/` or `lib/` for shared utility functions and helpers.
+- Use `providers/`, `hooks/`, `services/`, `data/`, `contexts/`, and `config/` directories for larger projects as needed.
+- Group related components in subdirectories and use `index.ts` files for clean exports.
+- Keep component files focused and single-responsibility.
+- Co-locate tests with their components or logic, or use a dedicated `tests/` directory.
+- Maintain clear separation of concerns and consistent file structure within directories.
+- Use named exports for all modules.
+
+For UI component best practices, see `ui-components.mdc`.
+For API module structure, see `api.mdc`.
+
+## Domain Types
+- All domain types (e.g., `FeatureFlag`) must be defined in `src/types`.
+- Components, APIs, and tests must import types from there.
+- This ensures type reuse and consistency across the frontend codebase.

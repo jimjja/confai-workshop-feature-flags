@@ -1,0 +1,42 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Coding Practices
+- Use ExpressJS for all HTTP APIs.
+- Use Prisma for all database access.
+- Use async/await for all asynchronous code.
+- Use environment variables for configuration.
+- Write unit for each route and service.
+- Avoid logic in route files—delegate to controllers/services.
+- Use error handling middleware for consistent error responses.
+- Validate all incoming data with Zod schema validator.
+- Keep business logic in services, not in routes or controllers.
+- Use dependency injection for services and database clients.
+- Prefer composition over inheritance.
+- Organize code by domain/resource, not by technical type.
+- Document all endpoints with OpenAPI comments.
+
+# Code Comments & Documentation
+- Use clear, concise comments to explain complex logic or business rules.
+- Document all public functions, types, and interfaces with JSDoc comments.
+- Keep comments up to date as code evolves.
+
+# Linting & Formatting
+- Follow the linting and formatting rules enforced by the root eslint.config.mjs and Prettier.
+- Fix all lint errors before committing code.
+- Use consistent code style for readability and maintainability.
+
+# Security Practices
+- Never log sensitive information (e.g., passwords, tokens, secrets).
+- Always validate and sanitize all user input.
+- Use environment variables for secrets and configuration, never hard-code them.
+- Apply the principle of least privilege for database and service access.
+- Keep dependencies up to date to avoid known vulnerabilities.
+- Use HTTPS and secure headers in production environments.
+
+# ExpressJS Best Practices
+- Use ExpressJS Router for modular route definitions.
+- Prefer async/await for all route handlers and middleware.
+- Use centralized error handling middleware for consistent error responses.

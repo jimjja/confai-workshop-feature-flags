@@ -1,0 +1,28 @@
+---
+description: 
+globs: *.test.ts,*.test.tsx
+alwaysApply: false
+---
+# Testing Rules
+
+1. Test Coverage
+- Write unit tests for all business logic and components.
+- Prefer testing public APIs over internal implementation details.
+- Use code coverage tools to monitor test completeness.
+- Review and update tests as features evolve to prevent stale or misleading tests.
+
+2. Test Structure & Consistency
+- Use a consistent testing framework (Jest) across all apps and packages.
+- Place tests in a dedicated tests/ directory.
+- Test files should use PascalCase and end with .test.ts or .spec.ts.
+- Use descriptive test names and group related tests with describe blocks.
+- Keep test files and functions small and focused.
+
+3. Mocking & Isolation
+- Mock external dependencies and services in tests; use libraries like jest.mock.
+- When mocking Prisma, always use the shared `prismaMock` from `src/mocks/prismaMock.ts`.
+- Do not create new Prisma mocks in individual test files.
+- Use jest-mock-extended for Prisma mocking.
+- Reset mocks with mockReset(prismaMock) in a beforeEach or global setup.
+- Mock return values for all Prisma methods used in the test.
+- Ensure tests are fast, reliable, and isolated.

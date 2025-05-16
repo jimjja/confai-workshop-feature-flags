@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Backend Tooling & Scripts Rule
+
+## Prisma Scripts
+- Always run all Prisma-related scripts (migrate, generate, reset, format) using the npm scripts defined in `package.json` (e.g., `npm run prisma:migrate`, `npm run prisma:generate`, etc.).
+- Do **not** run Prisma CLI commands directly (e.g., `npx prisma migrate dev`)—always use the npm scripts to ensure the correct schema and configuration are used.
+- If you need to add or update a Prisma script, update the `scripts` section in `package.json` and document the change in the root `README.md` if relevant.

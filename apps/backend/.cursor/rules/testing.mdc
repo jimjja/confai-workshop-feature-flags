@@ -1,0 +1,25 @@
+---
+description: 
+globs: *.test.ts
+alwaysApply: false
+---
+# Testing Rule
+
+## Overview
+- All business logic and components must have unit tests.
+- Use Jest as the consistent testing framework across all apps and packages.
+- Place tests in a dedicated `tests/` directory, using camelCase and ending with `.test.ts`.
+- Prefer testing public APIs over internal implementation details.
+- Ensure tests are fast, reliable, and isolated from external dependencies.
+
+## Prisma Unit Testing
+- Use mocked prisma client in `mocks/`
+- Do not use a real database in unit tests; mock all Prisma calls and set return values as needed.
+- In tests, always mock Prisma return values with the correct types (e.g., use `Date` objects for `createdAt`/`updatedAt`).
+
+## Best Practices
+- Group related tests with `describe` blocks.
+- Mock external dependencies and services.
+- Keep test files and functions small and focused.
+- Use code coverage tools to monitor test completeness.
+- Review and update tests as features evolve.

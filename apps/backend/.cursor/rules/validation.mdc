@@ -1,0 +1,39 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Backend Validation Practices
+
+- All request validation logic (e.g., Zod schemas) must be placed in `src/validators/`, one file per domain/resource.
+- Validators must not be defined inline in controllers or routes.
+- Controllers must import and use validators from `src/validators/`.
+- Use Zod for request body, query, and param validation.
+- Return 400 Bad Request for validation errors, with a clear error message.
+
+## Example
+
+```ts
+// src/validators/issue.ts
+import { z } from 'zod';
+
+export const createIssueSchema = z.object({
+  title: z.string().min(1),
+  description: z.string().optional(),
+  priority: z.enum(['low', 'medium', 'high'])
+});
+
+// src/controllers/issue.ts
+import { createIssueSchema } from '../validators/issue';
+
+function createIssueHandler(req, res) {
+  const parsed = createIssueSchema.safeParse(req.body);
+  if (!parsed.success) {
+    // handle validation error
+  }
+  // ...
+}
+```
+
+For folder structure, see the `folder-structure.mdc` rule.
+

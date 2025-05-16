@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: issues_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  mcp:
+    image: crystaldba/postgres-mcp
+    environment:
+      DATABASE_URI: postgres://postgres:postgres@db:5432/issues_db
+    ports:
+      - "8090:8000"
+    depends_on:
+      - db
+    command: ["--access-mode=unrestricted", "--transport=sse"]
+
+volumes:
+  db_data:
