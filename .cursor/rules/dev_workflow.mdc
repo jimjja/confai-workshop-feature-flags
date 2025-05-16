@@ -1,0 +1,70 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# Feature Development Workflow Rule
+
+For every new feature or significant change, strictly follow these steps:
+
+1. **Define Requirements & Backlog**
+  - Create or update a feature file in `backlog/` with user stories, use cases, and acceptance criteria.
+  - Ensure each item meets the "Definition of Ready."
+  - **Pause for review:** Present the backlog for explicit review and approval before proceeding.
+
+2. **Micro System Design**
+  - Before coding, sketch a system/architecture diagram (main components, data flow, dependencies).
+  - Document the design in the feature's backlog file.
+  - **Pause for review:** Present the micro system design for explicit review and approval before starting implementation.
+
+3. **Implement in Vertical Slices**
+  - Work in small, end-to-end increments (vertical slices: backend + frontend if needed).
+  - Each slice should deliver user value and be independently testable.
+  
+4. **Micro Refactoring**
+   - After each logical unit, immediately refactor for clarity, naming, and code quality.
+
+5. **Code Review & Critical Thinking**
+   - Summarize code changes and highlight risky changes.
+   - Prompt for critical thinking (e.g., "What risks or problems do you see in this implementation?").
+   - Ensure acceptance criteria are met, tests are included/updated, and documentation is updated.
+
+6. **Acceptance Criteria & Rule Updates**
+   - If requirements change, update acceptance criteria in the backlog.
+   - Update workflow rules or `.rules` files if deviations are found.
+
+7. **Shift-Left Testing**
+   - After each unit, generate and run unit tests.
+   - All code must pass lint, type checks, and tests before merging.
+
+8. **Debugging & Runtime Error Fixes**
+   - Debug and fix runtime errors as you develop.
+
+9. **End-to-End & Manual Testing**
+   - At the end of each vertical slice, perform E2E and manual smoke tests.
+
+10. **Celebrate & Close**
+    - Mark the feature as "Done" in the backlog.
+    - Celebrate the achievement!
+
+---
+
+## Definitions
+
+**Definition of Ready:**
+- User story is clear and testable
+- Acceptance criteria defined
+- Dependencies resolved
+- Designs attached (if needed)
+
+**Definition of Done:**
+- Code merged to main
+- All tests pass
+- Documentation updated
+- Deployed to staging/production
+- Post-deploy checks complete
+- Backlog item marked as done
+
+---
+
+Do not skip or reorder steps unless explicitly discussed and documented.

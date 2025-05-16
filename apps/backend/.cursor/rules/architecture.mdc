@@ -10,7 +10,7 @@ alwaysApply: true
   - **Routes:** Handle HTTP requests and responses, delegate to controllers. Each domain's routes must be defined in its own file and mounted in the main router with a prefix (e.g., `/ping`).
   - **Controllers:** Orchestrate validation, business logic, and response formatting.
   - **Services:** Contain business logic, interact with the data access layer (Prisma).
-  - **Data Access Layer:** Use Prisma client for all database operations. All service and business logic should import the Prisma client singleton from a single source (e.g., `src/database/prisma.ts` for types, and the generated client for the instance).
+  - **Data Access Layer:** Use Prisma client for all database operations. All service and business logic should import the Prisma client singleton from a single source (e.g., `src/database/client.ts` for types, and the generated client for the instance).
   - **Shared/Utility Layer:** Helpers, validators, middlewares, etc.
 - Keep each layer focused on its responsibility and avoid tight coupling between layers.
 - Place cross-cutting concerns (e.g., logging, metrics, authentication, authorization) in `src/middlewares/` or `src/lib/` as appropriate.

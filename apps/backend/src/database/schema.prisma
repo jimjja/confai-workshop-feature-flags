@@ -6,9 +6,19 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "./prisma"
 }
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model FeatureFlag {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String   @db.VarChar(255)
+  enabled     Boolean
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
